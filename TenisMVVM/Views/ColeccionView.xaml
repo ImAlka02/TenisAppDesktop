@@ -4,15 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TenisMVVM.Views"
+         xmlns:models="clr-namespace:TenisMVVM.Models"
+        xmlns:viewmodels="clr-namespace:TenisMVVM.ViewModels"
         mc:Ignorable="d"
         Title="ColeccionView" Height="450" Width="800">
-   
-    <StackPanel VerticalAlignment="Bottom">
+
+    <Window.DataContext>
+        <viewmodels:TenisViewModel x:Name="tvm"></viewmodels:TenisViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type models:Tenis}">
+            <local:TenisControl></local:TenisControl>
+        </DataTemplate>
+    </Window.Resources>
+
+
+
+    <StackPanel>
         <Expander HorizontalAlignment="Center">
-            <ListBox>
-                <WrapPanel>
-                </WrapPanel>
+            <ListBox x:Name="lst1" SelectedItem="{Binding Tenis}" ItemsSource="{Binding Coleccion}" Margin="0,5,0,0" DockPanel.Dock="Left" Background="White">
+                
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{Binding CambiarVistaCommand}" CommandParameter="Editar" Header="Editar"></MenuItem>
+                            <MenuItem Click="MenuItem_Click"
+                                  Header="Eliminar">
+
+                            </MenuItem>
+                        
+                    </ContextMenu>
+                </ListBox.ContextMenu>
             </ListBox>
         </Expander>
+
+       
     </StackPanel>
 </Window>
