@@ -20,7 +20,7 @@
         <StackPanel Grid.Column="1" Margin="10">
             <Label>Jordan 1 1985</Label>
             <Label>Valuado: $560,000</Label>
-            <TextBlock TextWrapping="Wrap">Como podrás imaginar, al final consiguieron convencerle para crear una línea de zapatillas propia. Las Nike Air Jordan 1 se pusieron a la venta de forma oficial en 1985 y serían las primeras de muchas. Llegaron con un diseño high top muy propio del calzado de baloncesto, es decir, con una caña alta que cubriera el tobillo.  También destacaba el logo Swoosh de Nike en el lateral y el primero de los logos de Air Jordan compuesto por un balón de baloncesto con alas.</TextBlock>
+            <TextBlock TextWrapping="Wrap">Como podrás imaginar, al final  uwu consiguieron convencerle para crear una línea de zapatillas propia. Las Nike Air Jordan 1 se pusieron a la venta de forma oficial en 1985 y serían las primeras de muchas. Llegaron con un diseño high top muy propio del calzado de baloncesto, es decir, con una caña alta que cubriera el tobillo.  También destacaba el logo Swoosh de Nike en el lateral y el primero de los logos de Air Jordan compuesto por un balón de baloncesto con alas.</TextBlock>
             
         </StackPanel>
         
