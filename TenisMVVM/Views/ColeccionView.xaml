@@ -32,15 +32,16 @@
                 <GradientStop Color="#ffffff" Offset=".5"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <ContentControl Grid.ColumnSpan="3" Panel.ZIndex="0">
+        
+        <ContentControl Grid.ColumnSpan="3">
             <ContentControl.Resources>
-                <local:AgregarEditarVista x:Key="agregar"></local:AgregarEditarVista>
                 <local:TenisVista x:Key="detalles"></local:TenisVista>
+                <local:AgregarEditarVista x:Key="agregar"></local:AgregarEditarVista>
             </ContentControl.Resources>
             <ContentControl.Style>
                 <Style TargetType="ContentControl">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Vista}" Value="Ver">
+                        <DataTrigger Binding="{Binding Vista}" Value="VistaPrincipal">
                             <Setter Property="Content" Value="{StaticResource detalles}"></Setter>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Vista}" Value="Agregar">
@@ -58,24 +59,17 @@
 
 
         <Expander HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1">
-            <ListBox x:Name="lst1" SelectedItem="{Binding Tenis}" ItemsSource="{Binding Coleccion}" Margin="0,5,0,0" DockPanel.Dock="Left" Background="White">
-                
-                <ListBox.ContextMenu>
-                   
-                    <ContextMenu>
-                        <WrapPanel>
-                        <MenuItem Command="{Binding CambiarVistaCommand}" CommandParameter="Editar" Header="Editar"></MenuItem>
-                        <MenuItem Click="MenuItem_Click"
-                                  Header="Eliminar">
+            <ListBox x:Name="lst1" SelectedItem="{Binding Tenis}" Margin="0,5,0,0" DockPanel.Dock="Left" Background="White">
 
-                        </MenuItem>
-                        </WrapPanel>
-                    </ContextMenu>
+                <WrapPanel Height="auto">
+                    <WrapPanel>
                         
-                </ListBox.ContextMenu>
-                    
+                    </WrapPanel>
+                    <Button Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar">Añadir Tenis </Button>
+                </WrapPanel>
+                
             </ListBox>
+            
         </Expander>
-        
     </Grid>
 </Window>

@@ -6,7 +6,59 @@
              xmlns:local="clr-namespace:TenisMVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+
+        <Style TargetType="DockPanel">
+            <Setter Property="Margin" Value="10,20,10, 0"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#6d6e72" Offset=".3"/>
+            <GradientStop Color="#e0e2e5" Offset="1"/>
+        </LinearGradientBrush>
+    </UserControl.Background>
+
+    <DockPanel Margin="10">
+
+       
+
+        <StackPanel>
+            <Label FontSize="12" Width="auto">Previsualización de la imagen:</Label>
+            <Image Source="https://image.goat.com/transform/v1/attachments/product_template_pictures/images/060/556/615/original/816402_00.png.png" Width="200" Height="200" ></Image>
+        </StackPanel>
+        
+        <StackPanel>
+            <DockPanel>
+                <Label>Nombre:</Label>
+                <TextBox></TextBox>
+            </DockPanel>
+
+            <DockPanel>
+                <Label>Valuado:</Label>
+                <TextBox></TextBox>
+            </DockPanel>
+
+            <DockPanel>
+                <Label>Historia:</Label>
+                <TextBox></TextBox>
+            </DockPanel>
+
+            <DockPanel>
+                <Label>Foto (URL):</Label>
+                <TextBox></TextBox>
+            </DockPanel>
+
+            <Button Padding="10" Margin="10">Añadir a la colección</Button>
+        </StackPanel>
+    </DockPanel>
+    
+   
 </UserControl>
