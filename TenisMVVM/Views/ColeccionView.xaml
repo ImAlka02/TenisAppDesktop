@@ -20,23 +20,62 @@
 
 
 
-    <StackPanel>
-        <Expander HorizontalAlignment="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#6d6e72" Offset="1"/>
+                <GradientStop Color="#ffffff" Offset=".5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ContentControl Grid.ColumnSpan="3" Panel.ZIndex="0">
+            <ContentControl.Resources>
+                <local:AgregarEditarVista x:Key="agregar"></local:AgregarEditarVista>
+                <local:TenisVista x:Key="detalles"></local:TenisVista>
+            </ContentControl.Resources>
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="Ver">
+                            <Setter Property="Content" Value="{StaticResource detalles}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="Agregar">
+                            <Setter Property="Content" Value="{StaticResource agregar}"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="Editar">
+                            <Setter Property="Content" Value="{StaticResource agregar}"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+
+        <Image Source="C:\Users\ajiju\Downloads\Jordan.png" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"/>
+
+
+        <Expander HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1">
             <ListBox x:Name="lst1" SelectedItem="{Binding Tenis}" ItemsSource="{Binding Coleccion}" Margin="0,5,0,0" DockPanel.Dock="Left" Background="White">
                 
                 <ListBox.ContextMenu>
+                   
                     <ContextMenu>
+                        <WrapPanel>
                         <MenuItem Command="{Binding CambiarVistaCommand}" CommandParameter="Editar" Header="Editar"></MenuItem>
-                            <MenuItem Click="MenuItem_Click"
+                        <MenuItem Click="MenuItem_Click"
                                   Header="Eliminar">
 
-                            </MenuItem>
-                        
+                        </MenuItem>
+                        </WrapPanel>
                     </ContextMenu>
+                        
                 </ListBox.ContextMenu>
+                    
             </ListBox>
         </Expander>
-
-       
-    </StackPanel>
+        
+    </Grid>
 </Window>
