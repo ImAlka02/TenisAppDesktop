@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TenisMVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="700">
 
     <UserControl.Resources>
         <Style TargetType="Label">
@@ -38,25 +38,38 @@
         <StackPanel>
             <DockPanel>
                 <Label>Nombre:</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding Tenis.Nombre}"></TextBox>
             </DockPanel>
 
             <DockPanel>
                 <Label>Valuado:</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding Tenis.Valuado}"></TextBox>
             </DockPanel>
 
             <DockPanel>
                 <Label>Historia:</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding Tenis.Historia}"></TextBox>
             </DockPanel>
 
             <DockPanel>
                 <Label>Foto (URL):</Label>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding Tenis.Foto}"></TextBox>
             </DockPanel>
 
-            <Button Padding="10" Margin="10">Añadir a la colección</Button>
+            <Button Padding="10" Margin="10">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Vista}" Value="Agregar">
+                                <Setter Property="Command" Value="{Binding AgregarCommand}"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Vista}" Value="Editar">
+                                <Setter Property="Command" Value="{Binding GuardarCommand}"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
     </DockPanel>
     

@@ -33,7 +33,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         
-        <ContentControl Grid.ColumnSpan="3">
+        <ContentControl Grid.ColumnSpan="3" Margin="20,50">
             <ContentControl.Resources>
                 <local:TenisVista x:Key="detalles"></local:TenisVista>
                 <local:AgregarEditarVista x:Key="agregar"></local:AgregarEditarVista>
