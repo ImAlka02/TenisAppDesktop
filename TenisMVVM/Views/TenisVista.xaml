@@ -35,8 +35,10 @@
                 <DataTrigger Binding="{Binding Tenis}" Value="{x:Null}">
                     <Setter Property="Content">
                         <Setter.Value>
-                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" TextWrapping="Wrap">
-                                Empieza tu colección con SneakerColection, agrega tus Sneaker's
+                            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" FontSize="30" TextWrapping="Wrap" FontFamily="../Assets/#Oleo Script" FontWeight="Regular">
+                                Empieza tu colección con SneakerCollection.
+                                <LineBreak/>
+                                Agrega tus Sneaker's!!
                             </TextBlock>
                         </Setter.Value>
                     </Setter>

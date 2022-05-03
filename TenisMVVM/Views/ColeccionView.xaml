@@ -55,21 +55,32 @@
             </ContentControl.Style>
         </ContentControl>
 
-        <Image Source="C:\Users\ajiju\Downloads\Jordan.png" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"/>
+        <Image Source="http://assets.stickpng.com/images/584292c4a6515b1e0ad75aca.png" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"/>
 
 
-        <Expander HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1">
-            <ListBox x:Name="lst1" SelectedItem="{Binding Tenis}" Margin="0,5,0,0" DockPanel.Dock="Left" Background="White">
-
-                <WrapPanel Height="auto">
-                    <WrapPanel>
-                        
-                    </WrapPanel>
-                    <Button Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar">Añadir Tenis </Button>
-                </WrapPanel>
-                
-            </ListBox>
-            
+        <Expander HorizontalAlignment="Center" Background="Transparent" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="3">
+            <Expander.Header>
+                <DockPanel VerticalAlignment="Stretch">
+                    <Image Source="https://i.postimg.cc/4xkyyBnd/sneakers.png" Height="16" DockPanel.Dock="Left" />
+                    <TextBlock FontStyle="Italic" Text=" Click to show/hide collection"></TextBlock>
+                </DockPanel>
+            </Expander.Header>
+            <DockPanel>
+                <ListBox x:Name="lst1"  SelectedItem="{Binding Tenis}" ItemsSource="{Binding Coleccion}" DockPanel.Dock="Left" Background="White">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="{Binding CambiarVistaCommand}" CommandParameter="Editar" Header="Editar"></MenuItem>
+                            <MenuItem Click="MenuItem_Click" Header="Eliminar"></MenuItem>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+                <Button Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar" Height="auto">Añadir Tenis</Button>
+            </DockPanel>
         </Expander>
     </Grid>
 </Window>

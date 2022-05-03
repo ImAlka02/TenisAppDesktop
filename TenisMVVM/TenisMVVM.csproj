@@ -8,8 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\OleoScript-Bold.ttf" />
+    <None Remove="Assets\OleoScript-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\OleoScript-Bold.ttf" />
+    <Resource Include="Assets\OleoScript-Regular.ttf" />
   </ItemGroup>
 
 </Project>
