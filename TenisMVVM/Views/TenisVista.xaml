@@ -18,14 +18,19 @@
                             <ColumnDefinition Width="6*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel VerticalAlignment="Center">
+                        <StackPanel>
+                            
                             <Image Source="{Binding Tenis.Foto}" HorizontalAlignment="Center"></Image>
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Tenis.Nombre}"></Label>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></Label>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" Margin="10">
-                            <Label Content="{Binding Tenis.Nombre}"></Label>
-                            <Label Content="{Binding Tenis.Valuado}"></Label>
+                            <Label Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></Label>
+                            <DockPanel>
+                                <TextBlock>Valuado:</TextBlock>
+                                <Label Content="{Binding Tenis.Valuado}"></Label>
+                            </DockPanel>
+                            
                             <TextBlock TextWrapping="Wrap" Text="{Binding Tenis.Historia}"></TextBlock>
                         </StackPanel>
                     </Grid>

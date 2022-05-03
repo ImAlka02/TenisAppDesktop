@@ -97,6 +97,7 @@ namespace TenisMVVM.ViewModels
         }
         private void Cancelar()
         {
+            CambiarVista("VistaPrincipal");
             Tenis = null;
         }
 

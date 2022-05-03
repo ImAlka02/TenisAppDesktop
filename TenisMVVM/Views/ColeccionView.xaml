@@ -18,7 +18,12 @@
         </DataTemplate>
     </Window.Resources>
 
-
+    <!-- Agregar sombra a las imagenes de muestra
+         Darle más al diseño
+         Checar faltas de ortografia
+         Hacer que muestre detalles
+         Expander no deja ver el boton
+    -->
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -32,7 +37,7 @@
                 <GradientStop Color="#ffffff" Offset=".5"/>
             </LinearGradientBrush>
         </Grid.Background>
-        
+
         <ContentControl Grid.ColumnSpan="3" Margin="20,50">
             <ContentControl.Resources>
                 <local:TenisVista x:Key="detalles"></local:TenisVista>
@@ -58,7 +63,7 @@
         <Image Source="http://assets.stickpng.com/images/584292c4a6515b1e0ad75aca.png" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"/>
 
 
-        <Expander HorizontalAlignment="Center" Background="Transparent" VerticalAlignment="Bottom" Grid.Column="1" Grid.ColumnSpan="3">
+        <Expander HorizontalAlignment="Center" Background="Transparent" VerticalAlignment="Bottom" Grid.ColumnSpan="3">
             <Expander.Header>
                 <DockPanel VerticalAlignment="Stretch">
                     <Image Source="https://i.postimg.cc/4xkyyBnd/sneakers.png" Height="16" DockPanel.Dock="Left" />
@@ -82,5 +87,7 @@
                 <Button Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar" Height="auto">Añadir Tenis</Button>
             </DockPanel>
         </Expander>
+
+        
     </Grid>
 </Window>

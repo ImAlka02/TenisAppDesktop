@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\BebasNeue-Regular.ttf" />
     <None Remove="Assets\OleoScript-Bold.ttf" />
     <None Remove="Assets\OleoScript-Regular.ttf" />
   </ItemGroup>
@@ -18,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\BebasNeue-Regular.ttf" />
     <Resource Include="Assets\OleoScript-Bold.ttf" />
     <Resource Include="Assets\OleoScript-Regular.ttf" />
   </ItemGroup>
