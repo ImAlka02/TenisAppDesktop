@@ -33,7 +33,7 @@ namespace TenisMVVM.ViewModels
             set
             {
                 tenis = value;
-                ProperyChanged("Pelicula");
+                ProperyChanged("Tenis");
             }
         }
 
@@ -93,6 +93,7 @@ namespace TenisMVVM.ViewModels
                 Coleccion[tenisSeleccionadoEditar] = Tenis;
                 Guardar();
                 ProperyChanged();
+                Cancelar();
             }
         }
         private void Cancelar()

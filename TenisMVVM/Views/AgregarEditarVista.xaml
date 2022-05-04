@@ -30,19 +30,19 @@
         </LinearGradientBrush>
     </UserControl.Background>-->
 
-    <DockPanel Margin="20">
+    <DockPanel Margin="0">
         <DockPanel.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#698891" Offset=".3"/>
                 <GradientStop Color="#e0e2e5" Offset="1"/>
             </LinearGradientBrush>
         </DockPanel.Background>
-        <StackPanel>
+        <StackPanel Margin="10">
             <Label FontSize="12" Width="auto">Previsualización de la imagen:</Label>
             <Image Source="{Binding Tenis.Foto}" Width="200" Height="200" ></Image>
         </StackPanel>
         
-        <StackPanel>
+        <StackPanel Margin="10">
             <DockPanel>
                 <Label>Nombre:</Label>
                 <TextBox Text="{Binding Tenis.Nombre}"></TextBox>
@@ -63,7 +63,7 @@
                 <TextBox Text="{Binding Tenis.Foto}"></TextBox>
             </DockPanel>
 
-            <Button Padding="10" Margin="10">
+            <Button Padding="10" Margin="10" Content="Guardar">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Style.Triggers>

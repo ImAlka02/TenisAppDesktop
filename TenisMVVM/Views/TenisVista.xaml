@@ -17,12 +17,16 @@
                             <ColumnDefinition Width="4*"></ColumnDefinition>
                             <ColumnDefinition Width="6*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-
-                        <StackPanel>
-                            
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFB6B9" Offset=".3"/>
+                                <GradientStop Color="#e0e2e5" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <DockPanel>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50" DockPanel.Dock="Bottom"></Label>
                             <Image Source="{Binding Tenis.Foto}" HorizontalAlignment="Center"></Image>
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></Label>
-                        </StackPanel>
+                        </DockPanel>
 
                         <StackPanel Grid.Column="1" Margin="10">
                             <Label Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></Label>
@@ -31,7 +35,8 @@
                                 <Label Content="{Binding Tenis.Valuado}"></Label>
                             </DockPanel>
                             
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Tenis.Historia}"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Tenis.Historia}" FontFamily="../Assets/#Roboto Slab Thin" FontWeight="Normal" FontSize="20"></TextBlock>
+                            <Button Content="Volver" Command="{Binding CambiarVistaCommand}" CommandParameter="Cancelar"></Button>
                         </StackPanel>
                     </Grid>
                 </Setter.Value>
