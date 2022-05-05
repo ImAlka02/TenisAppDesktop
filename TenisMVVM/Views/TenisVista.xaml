@@ -7,6 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Name="Valuado">
+            <Setter Property="FontSize" Value="20"/>
+
+        </Style>
+    </UserControl.Resources>
+
 
     <UserControl.Style>
         <Style TargetType="UserControl">
@@ -24,19 +31,34 @@
                             </LinearGradientBrush>
                         </Grid.Background>
                         <DockPanel>
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50" DockPanel.Dock="Bottom"></Label>
-                            <Image Source="{Binding Tenis.Foto}" HorizontalAlignment="Center"></Image>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="SemiBold" FontSize="50" DockPanel.Dock="Bottom"></Label>
+                            <Image Source="{Binding Tenis.Foto}" HorizontalAlignment="Center">
+                                <Image.Effect>
+                                    <DropShadowEffect ShadowDepth="10" Direction="-50" Color="Black" Opacity="1.5" BlurRadius="20"/>
+                                </Image.Effect>
+
+                            </Image>
                         </DockPanel>
 
                         <StackPanel Grid.Column="1" Margin="10">
                             <Label Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></Label>
                             <DockPanel>
-                                <TextBlock>Valuado:</TextBlock>
+                                <Label>Valuado:</Label>
                                 <Label Content="{Binding Tenis.Valuado}"></Label>
                             </DockPanel>
-                            
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Tenis.Historia}" FontFamily="../Assets/#Roboto Slab Thin" FontWeight="Normal" FontSize="20"></TextBlock>
-                            <Button Content="Volver" Command="{Binding CambiarVistaCommand}" CommandParameter="Cancelar"></Button>
+
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Tenis.Historia}" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="20"></TextBlock>
+                            <Button Padding="10" Margin="10" Content="Volver">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Vista}" Value="VistaPrincipal">
+                                                <Setter Property="Command" Value="{Binding CancelarCommand}"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </StackPanel>
                     </Grid>
                 </Setter.Value>

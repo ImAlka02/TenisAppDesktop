@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrimerApp.MainPage">
+
+    <StackLayout>
+        <Label Text="Hackeando... uwu" TextColor="Green" FontSize="30" Margin="0"></Label>
+        <Label Text="Hackeando... uwu" TextColor="Green" FontSize="30" Margin="0"></Label>
+
+
+        <Label Text="Hackeando... uwu" TextColor="Green" FontSize="30" Margin="0"></Label>
+        <Label Text="Hackeando... uwu" TextColor="Green" FontSize="30" Margin="0"></Label>
+        <Label Text="Hackeando... uwu" TextColor="Green" FontSize="30" Margin="0"></Label>
+        <Label Text="Hackeando... uwu" TextColor="Green" FontSize="30" Margin="0"></Label>
+        <Label Text="Hackeado... unu" TextColor="Green" FontSize="30" Margin="0"></Label>
+        <Button Padding="50" Text="Acectas viruses?"></Button>
+        <Button Text="Shi?"></Button>
+        <Button Text="Ño?"></Button>
+    </StackLayout>
+
+    
+
+</ContentPage>
