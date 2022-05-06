@@ -104,10 +104,46 @@ namespace TenisMVVM.ViewModels
 
         private void Agregar()
         {
-            Coleccion.Add(Tenis);
+            //Validaciones
+            if (Tenis != null) 
+            {
+                if (string.IsNullOrWhiteSpace(Tenis.Nombre))
+                {
+                    Error = "No puedes dejar el nombre vacio";
+                    ProperyChanged("Error");
+                    return;
+                }
 
-            CambiarVista("VistaPrincipal");
-            Guardar();
+                if (Tenis.Historia.Length >= 250)
+                {
+                    Error = "No puedes sobrepasar los 250 caracteres";
+                    ProperyChanged("Error");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(Tenis.Foto))
+                {
+                    Error = "Escribe la URL de una imagen de un Sneaker.";
+                    ProperyChanged("Error");
+                    return;
+                }
+
+                if (!Uri.TryCreate(Tenis.Foto, UriKind.Absolute, out var uri))
+                {
+                    Error = "Escriba una URL de la imagen valida";
+                    ProperyChanged("Error");
+                    return;
+                }
+
+                Coleccion.Add(Tenis);
+
+
+                CambiarVista("VistaPrincipal");
+                Error = "";
+                Guardar();
+            }
+
+            
         }
 
         private void Eliminar()
@@ -142,9 +178,7 @@ namespace TenisMVVM.ViewModels
                         Foto = tenis.Foto,
                         Historia = tenis.Historia,
                     };
-
-                    tenisSeleccionadoEditar = Coleccion.IndexOf(tenis); 
-
+                    tenisSeleccionadoEditar = Coleccion.IndexOf(tenis);
                     Tenis = clon;
                 }
             }

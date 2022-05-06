@@ -5,13 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TenisMVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" x:Name="UwU">
+             d:DesignHeight="450" d:DesignWidth="800">
 
 
     <UserControl.Resources>
         <Style TargetType="Label" x:Name="Valuado">
             <Setter Property="FontSize" Value="20"/>
-
         </Style>
     </UserControl.Resources>
     
@@ -22,56 +21,50 @@
             <Setter Property="Content">
                 <Setter.Value>
                     <Grid>
+                        
                         <Grid.ContextMenu>
                             <ContextMenu>
                                     <MenuItem Command="{Binding CambiarVistaCommand}" CommandParameter="Editar" Header="Editar"></MenuItem>
                                     <MenuItem Command="{Binding EliminarCommand}" Header="Eliminar"></MenuItem>
                                 </ContextMenu>
                         </Grid.ContextMenu>
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="4*"></ColumnDefinition>
                             <ColumnDefinition Width="6*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
+                        
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#FFB6B9" Offset=".3"/>
                                 <GradientStop Color="#e0e2e5" Offset="1"/>
                             </LinearGradientBrush>
                         </Grid.Background>
+                        
                         <DockPanel Margin="20">
                             <TextBlock Text="{Binding Tenis.Valuado, StringFormat={}{0:C}}" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontFamily="../Assets/#Bebas Neue" FontWeight="SemiBold" FontSize="35"></TextBlock>
                             <TextBlock  TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Text="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="SemiBold" FontSize="50" DockPanel.Dock="Bottom"></TextBlock>
-                            
                             <Image Source="{Binding Tenis.Foto}" HorizontalAlignment="Center">
                                 <Image.Effect>
                                     <DropShadowEffect ShadowDepth="10" Direction="-50" Color="Black" Opacity="1.5" BlurRadius="20"/>
                                 </Image.Effect>
-
                             </Image>
                         </DockPanel>
 
                         <StackPanel Grid.Column="1" Margin="20, 20">
                             <TextBlock HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></TextBlock>
+                            
                             <DockPanel HorizontalAlignment="Center">
                                 <Label Margin="0,0,10,0" Content="Valuado: " FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="30" Padding="0"></Label>
                                 <TextBlock Text="{Binding Tenis.Valuado, StringFormat={}{0:c}}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="30"></TextBlock>
                             </DockPanel>
-                           
-             
+                            
                             <TextBlock Margin="0,20"  TextWrapping="Wrap" Text="{Binding Tenis.Historia}" TextAlignment="Justify" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="20"></TextBlock>
-                            <Button Padding="10" Margin="10" Content=" Volver U+27AD;">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Vista}" Value="VistaPrincipal">
-                                                <Setter Property="Command" Value="{Binding CancelarCommand}"></Setter>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                                
+                            <Button Padding="10" Margin="450,0,0,0" BorderThickness="0" Background="Transparent" Command="{Binding CancelarCommand}">
+                                <Image Source="https://i.postimg.cc/VNBXCtYt/cerrar-sesion.png" Height="50"></Image>
                             </Button>
                         </StackPanel>
+                        
                     </Grid>
                 </Setter.Value>
             </Setter>
@@ -79,7 +72,7 @@
                 <DataTrigger Binding="{Binding Tenis}" Value="{x:Null}">
                     <Setter Property="Content">
                         <Setter.Value>
-                            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" FontSize="30" TextWrapping="Wrap" FontFamily="../Assets/#Oleo Script" FontWeight="Regular">
+                            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" FontSize="50" TextWrapping="Wrap" FontFamily="../Assets/#Oleo Script" FontWeight="Normal">
                                 Empieza tu colección con SneakerCollection.
                                 <LineBreak/>
                                 Agrega tus Sneaker's!!

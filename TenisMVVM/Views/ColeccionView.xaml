@@ -7,7 +7,7 @@
          xmlns:models="clr-namespace:TenisMVVM.Models"
         xmlns:viewmodels="clr-namespace:TenisMVVM.ViewModels"
         mc:Ignorable="d"
-        Title="ColeccionView" Height="550" Width="1000" ResizeMode="NoResize">
+        Title="ColeccionView" Height="600" Width="1050" ResizeMode="NoResize">
 
     <Window.DataContext>
         <viewmodels:TenisViewModel x:Name="tvm"></viewmodels:TenisViewModel>
@@ -18,11 +18,9 @@
         </DataTemplate>
     </Window.Resources>
 
-    <!-- Agregar sombra a las imagenes de muestra
-         Darle más al diseño
+    <!--       
          Checar faltas de ortografia
-         Hacer que muestre detalles
-         Expander no deja ver el boton
+         Estilos mejor acomodados
     -->
 
     <Grid>
@@ -46,29 +44,30 @@
 
 
         <DockPanel Grid.Row="1"   Grid.ColumnSpan="3">
-
-            <Button Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar" DockPanel.Dock="Right">Añadir Tenis</Button>
-            <Expander Background="Transparent">
+            <Button Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar" DockPanel.Dock="Right" Background="Transparent" BorderThickness="0" Margin="0,22,0,0">
+                <StackPanel>
+                    <Image Height="50" Source="https://i.postimg.cc/JncNX2LM/plus.png"/>
+                    <Label Content="Añadir" FontSize="20" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular"></Label>
+                </StackPanel>
+            </Button>
+            
+            <Expander Background="Transparent" VerticalAlignment="Bottom">
+                
                 <Expander.Header>
                     <DockPanel VerticalAlignment="Stretch">
-                        
-                        <Image Source="https://i.postimg.cc/4xkyyBnd/sneakers.png" Height="16" DockPanel.Dock="Left" />
+
+                        <Image Source="https://i.postimg.cc/VsZ1wsxB/sneakers.png" Height="16" DockPanel.Dock="Left" />
                         <TextBlock FontStyle="Italic" Text=" Click to show/hide collection"></TextBlock>
                     </DockPanel>
                 </Expander.Header>
-                
-                    <ListBox x:Name="lst1" Height="160" SelectedItem="{Binding Tenis}" ItemsSource="{Binding Coleccion}" DockPanel.Dock="Left" Background="Transparent" PreviewMouseRightButtonDown="lst1_PreviewMouseRightButtonDown"  >
-                    
+
+                <ListBox x:Name="lst1" Height="160" SelectedItem="{Binding Tenis}" ItemsSource="{Binding Coleccion}" DockPanel.Dock="Left" Background="Transparent" PreviewMouseRightButtonDown="lst1_PreviewMouseRightButtonDown"  >
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
-                    
                 </ListBox>
-               
-                   
-                
             </Expander>
         </DockPanel>
 
@@ -93,13 +92,5 @@
                 </Style>
             </ContentControl.Style>
         </ContentControl>
-
-
-
-
-
-        
-
-        
     </Grid>
 </Window>
