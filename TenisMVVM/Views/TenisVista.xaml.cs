@@ -24,5 +24,16 @@ namespace TenisMVVM.Views
         {
             InitializeComponent();
         }
+
+       
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de eliminar la pelicula?", "Confirme",
+                           MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                ((TenisMVVM.ViewModels.TenisViewModel)this.DataContext).EliminarCommand.Execute(null);
+            }
+        }
     }
 }

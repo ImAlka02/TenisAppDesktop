@@ -24,5 +24,7 @@ namespace TenisMVVM.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

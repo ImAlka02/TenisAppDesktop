@@ -12,23 +12,19 @@
             <Setter Property="FontSize" Value="18"></Setter>
             <Setter Property="Width" Value="150"></Setter>
             <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="FontFamily" Value="../Assets/#Roboto Slab"></Setter>
+            <Setter Property="FontWeight" Value="Regular"></Setter>
+            
         </Style>
 
         <Style TargetType="DockPanel">
-            <Setter Property="Margin" Value="10,20,10, 0"></Setter>
+            <Setter Property="Margin" Value="10,30,10, 0"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="20"></Setter>
         </Style>
     </UserControl.Resources>
-    
-    <!--<UserControl.Effect>
-        <BlurEffect Radius="10"></BlurEffect>
-    </UserControl.Effect>-->
-
-    <!--<UserControl.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#698891" Offset=".3"/>
-            <GradientStop Color="#e0e2e5" Offset="1"/>
-        </LinearGradientBrush>
-    </UserControl.Background>-->
 
     <DockPanel Margin="0">
         <DockPanel.Background>
@@ -37,46 +33,61 @@
                 <GradientStop Color="#e0e2e5" Offset="1"/>
             </LinearGradientBrush>
         </DockPanel.Background>
-        <StackPanel Margin="10">
-            <Label FontSize="12" Width="auto">Previsualización de la imagen:</Label>
-            <Image Source="{Binding Tenis.Foto}" Width="200" Height="200" ></Image>
+        <StackPanel Margin="30, 20" >
+            <Label FontSize="18" FontWeight="Regular" Width="auto" HorizontalAlignment="Center">Previsualización del Sneaker:</Label>
+            <Image Source="{Binding Tenis.Foto}" Width="200" Height="200" >
+                <Image.Effect>
+                    <DropShadowEffect ShadowDepth="10" Direction="-50" Color="Black" Opacity="1.5" BlurRadius="20"/>
+                </Image.Effect>
+            </Image>
+
+            <TextBlock HorizontalAlignment="Center" Text="{Binding Tenis.Nombre}" TextWrapping="Wrap" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="20" ></TextBlock>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding Tenis.Valuado, StringFormat={}{0:C}}" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="20" Margin="0,10,0,0"></TextBlock>
         </StackPanel>
         
         <StackPanel Margin="10">
-            <DockPanel>
+           
                 <Label>Nombre:</Label>
-                <TextBox Text="{Binding Tenis.Nombre}"></TextBox>
-            </DockPanel>
+                <TextBox Height="20" Text="{Binding Tenis.Nombre}"></TextBox>
 
-            <DockPanel>
                 <Label>Valuado:</Label>
                 <TextBox Text="{Binding Tenis.Valuado}"></TextBox>
-            </DockPanel>
-
-            <DockPanel>
-                <Label>Historia:</Label>
-                <TextBox Text="{Binding Tenis.Historia}"></TextBox>
-            </DockPanel>
-
-            <DockPanel>
+  
                 <Label>Foto (URL):</Label>
                 <TextBox Text="{Binding Tenis.Foto}"></TextBox>
-            </DockPanel>
 
-            <Button Padding="10" Margin="10" Content="Guardar">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Vista}" Value="Agregar">
-                                <Setter Property="Command" Value="{Binding AgregarCommand}"></Setter>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding Vista}" Value="Editar">
-                                <Setter Property="Command" Value="{Binding GuardarCommand}"></Setter>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+                <Label>Historia:</Label>
+                <TextBox Text="{Binding Tenis.Historia}" Height="150"></TextBox>
+
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Padding="100,20" Margin="20,10" Content="Guardar">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Vista}" Value="Agregar">
+                                    <Setter Property="Command" Value="{Binding AgregarCommand}"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Vista}" Value="Editar">
+                                    <Setter Property="Command" Value="{Binding GuardarCommand}"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Padding="10" Margin="10" Content="Volver">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Vista}" Value="VistaPrincipal">
+                                    <Setter Property="Command" Value="{Binding CancelarCommand}"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </WrapPanel>
+            
+            
         </StackPanel>
     </DockPanel>
     

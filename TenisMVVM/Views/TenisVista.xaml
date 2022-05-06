@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TenisMVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" x:Name="UwU">
+
 
     <UserControl.Resources>
         <Style TargetType="Label" x:Name="Valuado">
@@ -13,6 +14,7 @@
 
         </Style>
     </UserControl.Resources>
+    
 
 
     <UserControl.Style>
@@ -20,6 +22,12 @@
             <Setter Property="Content">
                 <Setter.Value>
                     <Grid>
+                        <Grid.ContextMenu>
+                            <ContextMenu>
+                                    <MenuItem Command="{Binding CambiarVistaCommand}" CommandParameter="Editar" Header="Editar"></MenuItem>
+                                    <MenuItem Command="{Binding EliminarCommand}" Header="Eliminar"></MenuItem>
+                                </ContextMenu>
+                        </Grid.ContextMenu>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="4*"></ColumnDefinition>
                             <ColumnDefinition Width="6*"></ColumnDefinition>
@@ -30,8 +38,10 @@
                                 <GradientStop Color="#e0e2e5" Offset="1"/>
                             </LinearGradientBrush>
                         </Grid.Background>
-                        <DockPanel>
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="SemiBold" FontSize="50" DockPanel.Dock="Bottom"></Label>
+                        <DockPanel Margin="20">
+                            <TextBlock Text="{Binding Tenis.Valuado, StringFormat={}{0:C}}" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontFamily="../Assets/#Bebas Neue" FontWeight="SemiBold" FontSize="35"></TextBlock>
+                            <TextBlock  TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Text="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="SemiBold" FontSize="50" DockPanel.Dock="Bottom"></TextBlock>
+                            
                             <Image Source="{Binding Tenis.Foto}" HorizontalAlignment="Center">
                                 <Image.Effect>
                                     <DropShadowEffect ShadowDepth="10" Direction="-50" Color="Black" Opacity="1.5" BlurRadius="20"/>
@@ -40,15 +50,16 @@
                             </Image>
                         </DockPanel>
 
-                        <StackPanel Grid.Column="1" Margin="10">
-                            <Label Content="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></Label>
-                            <DockPanel>
-                                <Label>Valuado:</Label>
-                                <Label Content="{Binding Tenis.Valuado}"></Label>
+                        <StackPanel Grid.Column="1" Margin="20, 20">
+                            <TextBlock HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Text="{Binding Tenis.Nombre}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="50"></TextBlock>
+                            <DockPanel HorizontalAlignment="Center">
+                                <Label Margin="0,0,10,0" Content="Valuado: " FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="30" Padding="0"></Label>
+                                <TextBlock Text="{Binding Tenis.Valuado, StringFormat={}{0:c}}" FontFamily="../Assets/#Bebas Neue" FontWeight="Light" FontSize="30"></TextBlock>
                             </DockPanel>
-
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Tenis.Historia}" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="20"></TextBlock>
-                            <Button Padding="10" Margin="10" Content="Volver">
+                           
+             
+                            <TextBlock Margin="0,20"  TextWrapping="Wrap" Text="{Binding Tenis.Historia}" TextAlignment="Justify" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="20"></TextBlock>
+                            <Button Padding="10" Margin="10" Content=" Volver U+27AD;">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Style.Triggers>
@@ -58,6 +69,7 @@
                                         </Style.Triggers>
                                     </Style>
                                 </Button.Style>
+                                
                             </Button>
                         </StackPanel>
                     </Grid>
