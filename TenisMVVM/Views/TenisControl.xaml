@@ -14,6 +14,6 @@
                 <DropShadowEffect ShadowDepth="10" Direction="-50" Color="Black" Opacity="1.5" BlurRadius="20"/>
             </Image.Effect>
         </Image>
-        <Label HorizontalAlignment="Center" Content="{Binding Nombre}" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="15"></Label>
+        <Label HorizontalAlignment="Center"  Margin="0,10,0,0" Content="{Binding Nombre}" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular" FontSize="15"></Label>
     </StackPanel>
 </UserControl>

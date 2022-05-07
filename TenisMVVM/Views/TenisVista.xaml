@@ -36,7 +36,7 @@
                         
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                <GradientStop Color="#FFB6B9" Offset=".3"/>
+                                <GradientStop Color="#E6A4B4" Offset=".3"/>
                                 <GradientStop Color="#e0e2e5" Offset="1"/>
                             </LinearGradientBrush>
                         </Grid.Background>
@@ -75,7 +75,7 @@
                             <TextBlock HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" FontSize="50" TextWrapping="Wrap" FontFamily="../Assets/#Oleo Script" FontWeight="Normal">
                                 Empieza tu colección con SneakerCollection.
                                 <LineBreak/>
-                                Agrega tus Sneaker's!!
+                                ¡¡Agrega tus Sneaker's!!
                             </TextBlock>
                         </Setter.Value>
                     </Setter>

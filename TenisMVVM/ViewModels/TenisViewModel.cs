@@ -98,6 +98,7 @@ namespace TenisMVVM.ViewModels
         }
         private void Cancelar()
         {
+            Error = "";
             CambiarVista("VistaPrincipal");
             Tenis = null;
         }
@@ -109,14 +110,14 @@ namespace TenisMVVM.ViewModels
             {
                 if (string.IsNullOrWhiteSpace(Tenis.Nombre))
                 {
-                    Error = "No puedes dejar el nombre vacio";
+                    Error = "No puedes dejar el nombre vacío.";
                     ProperyChanged("Error");
                     return;
                 }
 
                 if (Tenis.Historia.Length >= 250)
                 {
-                    Error = "No puedes sobrepasar los 250 caracteres";
+                    Error = "No puedes sobrepasar los 250 caracteres.";
                     ProperyChanged("Error");
                     return;
                 }
@@ -130,7 +131,7 @@ namespace TenisMVVM.ViewModels
 
                 if (!Uri.TryCreate(Tenis.Foto, UriKind.Absolute, out var uri))
                 {
-                    Error = "Escriba una URL de la imagen valida";
+                    Error = "Escriba una URL de la imagen válida";
                     ProperyChanged("Error");
                     return;
                 }

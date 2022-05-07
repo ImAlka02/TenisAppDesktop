@@ -20,7 +20,7 @@
 
     <!--       
          Checar faltas de ortografia
-         Estilos mejor acomodados
+        
     -->
 
     <Grid>
@@ -45,13 +45,22 @@
 
         <DockPanel Grid.Row="1"   Grid.ColumnSpan="3">
             <Button Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar" DockPanel.Dock="Right" Background="Transparent" BorderThickness="0" Margin="0,22,0,0">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=Expander, Path= IsExpanded}" Value="False">
+                                <Setter Property="Visibility" Value="Hidden"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
                 <StackPanel>
                     <Image Height="50" Source="https://i.postimg.cc/JncNX2LM/plus.png"/>
                     <Label Content="Añadir" FontSize="20" FontFamily="../Assets/#Roboto Slab" FontWeight="Regular"></Label>
                 </StackPanel>
             </Button>
             
-            <Expander Background="Transparent" VerticalAlignment="Bottom">
+            <Expander Background="Transparent" VerticalAlignment="Bottom" x:Name="Expander">
                 
                 <Expander.Header>
                     <DockPanel VerticalAlignment="Stretch">

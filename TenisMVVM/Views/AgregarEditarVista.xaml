@@ -24,7 +24,7 @@
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="20"></Setter>
         </Style>
-        <!---->
+        
         <Style TargetType="Button">
             <Setter Property="Padding" Value="10"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -40,7 +40,7 @@
         </Grid.ColumnDefinitions>
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#698891" Offset=".3"/>
+                <GradientStop Color="#DBE2EF" Offset=".3"/>
                     <GradientStop Color="#e0e2e5" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
